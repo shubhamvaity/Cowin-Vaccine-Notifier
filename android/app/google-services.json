@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931114796970",
+    "project_id": "vaccine-notifier-2d2d2",
+    "storage_bucket": "vaccine-notifier-2d2d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931114796970:android:81941dac79e30913aecdd3",
+        "android_client_info": {
+          "package_name": "com.shubhamvaity.vaccinenotifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931114796970-cr8fgll11m1iu1u97t55kn72ktosub10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2I9Y1Q6dKC2RiTxJ8Q38xHWGzk8NatV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931114796970-cr8fgll11m1iu1u97t55kn72ktosub10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
