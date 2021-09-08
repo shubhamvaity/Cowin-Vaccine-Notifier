@@ -54,7 +54,8 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
   //   }
   // }
 
-  fetchSlotsHeadless(prefs, events, taskId, alert[1], alert[2], alert[3],
+  fetchSlotsHeadless(
+      prefs, events, taskId, alert[1], alert[2], alert[3], alert[4],
       pinCode: alert[0]);
   // Add new event.
   // events.insert(0, "$taskId@$timestamp [Headless]");
@@ -95,7 +96,7 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
 //   }
 // }
 Future fetchSlotsHeadless(SharedPreferences prefs, var events, String taskId,
-    String vaccineType, String doseNo, String ageIp,
+    String vaccineType, String doseNo, String ageIp, String feeType,
     {String pinCode = "000000"}) async {
   var time = DateTime.now();
   String urlDate = time.day.toString() +
@@ -140,7 +141,8 @@ Future fetchSlotsHeadless(SharedPreferences prefs, var events, String taskId,
           data.centers[i].sessions[j].minAgeLimit.toString() == ageIp &&
           data.centers[i].sessions[j].availableCapacity > 0 &&
           data.centers[i].sessions[j].vaccine == vaccineType &&
-          data.centers[i].sessions[j].availableCapacityDose1 > 0) {
+          data.centers[i].sessions[j].availableCapacityDose1 > 0 &&
+          data.centers[i].feeType == feeType) {
         //show notifcn
         temp.add(data.centers[i].sessions[j].date);
         temp.add("Dose 1 Capacity : " +
@@ -151,7 +153,8 @@ Future fetchSlotsHeadless(SharedPreferences prefs, var events, String taskId,
           data.centers[i].sessions[j].minAgeLimit.toString() == ageIp &&
           data.centers[i].sessions[j].availableCapacity > 0 &&
           data.centers[i].sessions[j].vaccine == vaccineType &&
-          data.centers[i].sessions[j].availableCapacityDose2 > 0) {
+          data.centers[i].sessions[j].availableCapacityDose2 > 0 &&
+          data.centers[i].feeType == feeType) {
         temp.add(data.centers[i].sessions[j].date);
         temp.add("Dose 2 Capacity : " +
             data.centers[i].sessions[j].availableCapacityDose2.toString());
@@ -366,7 +369,7 @@ class _MyBgAppState extends State<MyBgApp> {
   }
 
   Future fetchSlots(SharedPreferences prefs, String taskId, String vaccineType,
-      String doseNo, String ageIp,
+      String doseNo, String ageIp, String feeType,
       {String pinCode = "000000"}) async {
     var time = DateTime.now();
     _events = [];
@@ -412,7 +415,8 @@ class _MyBgAppState extends State<MyBgApp> {
             data.centers[i].sessions[j].minAgeLimit.toString() == ageIp &&
             data.centers[i].sessions[j].availableCapacity > 0 &&
             data.centers[i].sessions[j].vaccine == vaccineType &&
-            data.centers[i].sessions[j].availableCapacityDose1 > 0) {
+            data.centers[i].sessions[j].availableCapacityDose1 > 0 &&
+            data.centers[i].feeType == feeType) {
           //show notifcn
           temp.add(data.centers[i].sessions[j].date);
           temp.add("Dose 1 Capacity : " +
@@ -424,7 +428,8 @@ class _MyBgAppState extends State<MyBgApp> {
             data.centers[i].sessions[j].minAgeLimit.toString() == ageIp &&
             data.centers[i].sessions[j].availableCapacity > 0 &&
             data.centers[i].sessions[j].vaccine == vaccineType &&
-            data.centers[i].sessions[j].availableCapacityDose2 > 0) {
+            data.centers[i].sessions[j].availableCapacityDose2 > 0 &&
+            data.centers[i].feeType == feeType) {
           temp.add(data.centers[i].sessions[j].date);
           temp.add("Dose 2 Capacity: " +
               data.centers[i].sessions[j].availableCapacityDose2.toString());
@@ -472,7 +477,7 @@ class _MyBgAppState extends State<MyBgApp> {
         timer.cancel();
       }
       print("5 sec timer");
-      fetchSlots(prefs, taskId, alert[1], alert[2], alert[3],
+      fetchSlots(prefs, taskId, alert[1], alert[2], alert[3], alert[4],
           pinCode: alert[0]);
     });
   }
