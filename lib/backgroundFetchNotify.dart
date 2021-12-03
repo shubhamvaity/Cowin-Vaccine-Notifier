@@ -732,7 +732,7 @@ class _MyBgAppState extends State<MyBgApp> {
                     itemBuilder: (BuildContext context, int index) {
                       var event = _events;
                       return Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(11.0),
                         child: InputDecorator(
                             decoration: InputDecoration(
                               border: OutlineInputBorder(),
@@ -805,58 +805,45 @@ class _MyBgAppState extends State<MyBgApp> {
                                         fontSize: 17),
                                   ),
                                 ),
-
-                                ElevatedButton(
-                                  onPressed: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) =>
-                                    //             WebViewLoad()));
-                                    launchURL(
-                                        "https://selfregistration.cowin.gov.in");
-                                  },
-                                  child: Text("Book Slot"),
-                                )
                               ],
                             )),
                       );
                     }),
               ),
 
-        bottomNavigationBar: BottomAppBar(
-            child: Container(
-                padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      RaisedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            _onClickClear();
-                          },
-                          color: Color.fromARGB(255, 0, 31, 96),
-                          child: Text(
-                            "Go Back",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 18),
-                          )),
-                      // RaisedButton(
-                      //     onPressed: _onClickStatus,
-                      //     child: Text('Status: $_status')),
-                      RaisedButton(
-                          onPressed: _onClickClear,
-                          color: Color.fromARGB(255, 0, 31, 96),
-                          child: Text(
-                            'Clear',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 18),
-                          ))
-                    ]))),
+        // bottomNavigationBar: BottomAppBar(
+        //     child: Container(
+        //         padding: EdgeInsets.only(left: 5.0, right: 5.0),
+        //         child: Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //             children: <Widget>[
+        //               RaisedButton(
+        //                   onPressed: () {
+        //                     Navigator.pop(context);
+        //                     _onClickClear();
+        //                   },
+        //                   color: Color.fromARGB(255, 0, 31, 96),
+        //                   child: Text(
+        //                     "Go Back",
+        //                     style: TextStyle(
+        //                         fontWeight: FontWeight.bold,
+        //                         color: Colors.white,
+        //                         fontSize: 18),
+        //                   )),
+        //               // RaisedButton(
+        //               //     onPressed: _onClickStatus,
+        //               //     child: Text('Status: $_status')),
+        //               RaisedButton(
+        //                   onPressed: _onClickClear,
+        //                   color: Color.fromARGB(255, 0, 31, 96),
+        //                   child: Text(
+        //                     'Clear',
+        //                     style: TextStyle(
+        //                         fontWeight: FontWeight.bold,
+        //                         color: Colors.white,
+        //                         fontSize: 18),
+        //                   ))
+        //             ]))),
       ),
     );
   }

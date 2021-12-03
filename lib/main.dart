@@ -81,18 +81,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
             child: Form(
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
               key: _formKey,
               child: Column(
                 children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: Card(
-                  //     child: Column(
-                  //       children: [],
-                  //     ),
-                  //   ),
-                  // ),
                   (createdAlerts != null && enableVal == 'true')
                       ? (createdAlerts[3] == '0'
                           ? Padding(
