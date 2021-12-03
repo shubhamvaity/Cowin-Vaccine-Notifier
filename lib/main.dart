@@ -353,7 +353,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.black26,
                           ),
                           floatingLabelBehavior: FloatingLabelBehavior.always),
-                      items: ["0 - 17", "18 - 44", "45+"]
+                      items: ["18 & Above", "18-44 Only", "45 & Above"]
                           .map((label) => DropdownMenuItem(
                                 child: Text(label.toString()),
                                 value: label,
@@ -361,8 +361,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           .toList(),
                       onChanged: (value) {
                         FocusScope.of(context).requestFocus(new FocusNode());
-                        if (value.toString() == "0 - 17") {
-                          ageIp = "0";
+                        if (value.toString() == "18 & Above") {
+                          ageIp = "18";
                         } else if (value.toString() == "18 - 44") {
                           ageIp = "18";
                         } else if (value.toString() == "45+") {

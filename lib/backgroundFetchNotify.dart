@@ -12,8 +12,21 @@ import 'package:url_launcher/url_launcher.dart';
 const EVENTS_KEY = "fetch_events";
 List<String> alert = [];
 
-// ["400004","COVISHIELD","2","age group"];
+// ["400004","COVISHIELD","2","age group","fee type"];
 FlutterLocalNotificationsPlugin localNotifications;
+
+// sec5Timer(SharedPreferences prefs, var events, String taskId,
+//     String vaccineType, String doseNo, String ageIp,
+//     {String pinCode = "000000"}) {
+//   Timer.periodic(Duration(seconds: 120), (timer) {
+//     // if (!_enabled) {
+//     //   timer.cancel();
+//     // }
+//     print("5 sec timer");
+//     fetchSlotsHeadless(prefs, events, taskId, alert[1], alert[2], alert[3],
+//         pinCode: alert[0]);
+//   });
+// }
 
 /// This "Headless Task" is run when app is terminated.
 void backgroundFetchHeadlessTask(HeadlessTask task) async {
@@ -53,7 +66,7 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
   //     events.add(json);
   //   }
   // }
-
+//TODO :improve freq of alerts
   fetchSlotsHeadless(
       prefs, events, taskId, alert[1], alert[2], alert[3], alert[4],
       pinCode: alert[0]);
@@ -209,7 +222,9 @@ Future _showNotificationHeadless() async {
           alert[2] +
           "\nAge Group : " +
           alert[3] +
-          " +",
+          " +" +
+          "\nFee Type :" +
+          alert[4],
       generalNotificationDetails);
 }
 // Future _showNotificationHeadless() async {
@@ -364,7 +379,9 @@ class _MyBgAppState extends State<MyBgApp> {
             alert[2] +
             "\nAge Group : " +
             alert[3] +
-            " +",
+            " +" +
+            "\nFee Type : " +
+            alert[4],
         generalNotificationDetails);
   }
 
@@ -472,7 +489,7 @@ class _MyBgAppState extends State<MyBgApp> {
   sec5Timer(SharedPreferences prefs, String taskId, String vaccineType,
       String doseNo, String ageIp,
       {String pinCode = "000000"}) {
-    Timer.periodic(Duration(seconds: 240), (timer) {
+    Timer.periodic(Duration(seconds: 120), (timer) {
       if (!_enabled) {
         timer.cancel();
       }
@@ -490,8 +507,9 @@ class _MyBgAppState extends State<MyBgApp> {
     SharedPreferences prefs;
     _events = [];
     print("[BackgroundFetch] Event received: $taskId");
-
-    sec5Timer(prefs, taskId, alert[1], alert[2], alert[3], pinCode: alert[0]);
+    fetchSlots(prefs, taskId, alert[1], alert[2], alert[3], alert[4],
+        pinCode: alert[0]);
+    // sec5Timer(prefs, taskId, alert[1], alert[2], alert[3], pinCode: alert[0]);
     // setState(() {
     //   _events.insert(0, "$taskId@${timestamp.toString()}");
     // });
