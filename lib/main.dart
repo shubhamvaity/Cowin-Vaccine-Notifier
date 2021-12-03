@@ -355,9 +355,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         FocusScope.of(context).requestFocus(new FocusNode());
                         if (value.toString() == "18 & Above") {
                           ageIp = "18";
-                        } else if (value.toString() == "18 - 44") {
+                        } else if (value.toString() == "18-44 Only") {
                           ageIp = "18";
-                        } else if (value.toString() == "45+") {
+                        } else if (value.toString() == "45 & Above") {
                           ageIp = "45";
                         }
 
