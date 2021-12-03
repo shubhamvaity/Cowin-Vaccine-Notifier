@@ -13,7 +13,7 @@
 
 - In case if there are no Slots available for the user inputted details, an alert will be created by the application for the user inputted details. Whenever there are open slots available for booking users will be notified with the help of the notification regarding the availability of the slots.
 
-- Application can be downloaded from here (<a href="https://cutt.ly/3YoBJBA">Application Link</a>)
+- Application can be downloaded from here (<a href="https://cutt.ly/tYo16IX">Application Link</a>)
 
 ------------
 
